@@ -70,9 +70,7 @@ namespace octave
   void
   gtk_manager::register_toolkit (const std::string& name)
   {
-    if (dtk.empty () || name == "qt"
-        || (name == "fltk"
-            && available_toolkits.find ("qt") == available_toolkits.end ()))
+    if (dtk.empty () || name == "gnuplot")
       dtk = name;
 
     available_toolkits.insert (name);
@@ -97,10 +95,7 @@ namespace octave
               {
                 std::string tk_name = *pa++;
 
-                if (tk_name == "qt"
-                    || (tk_name == "fltk"
-                        && (available_toolkits.find ("qt")
-                            == available_toolkits.cend ())))
+                if (tk_name == "gnuplot")
                   dtk = tk_name;
               }
           }
